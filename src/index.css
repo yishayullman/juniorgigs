@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@layer components {
+:root{box-sizing:border-box;--bg:#04051a;--ink:#f8fafc;--mute:#8b93b8;--faint:#555d85}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:'Rubik',system-ui,sans-serif;background:var(--bg);color:var(--ink);margin:0;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+.bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+ radial-gradient(60% 40% at 85% -5%,rgba(124,58,237,.38),transparent 70%),
+ radial-gradient(50% 35% at 0% 45%,rgba(59,76,255,.22),transparent 70%),
+ radial-gradient(55% 35% at 100% 100%,rgba(217,70,239,.2),transparent 70%),
+ linear-gradient(180deg,#070824,#04051a 60%)}
+.bg-fx::after{content:'';position:absolute;inset:0;opacity:.35;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%);mask-image:linear-gradient(180deg,#000,transparent 55%)}
+/* glowing-border premium card */
+.gcard{position:relative;border-radius:26px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015) 60%);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 20px 50px -20px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.gcard::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(129,140,248,.65),rgba(255,255,255,.06) 38%,rgba(255,255,255,.04) 62%,rgba(217,70,239,.55));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);pointer-events:none;opacity:.75;transition:opacity .35s}
+.gcard.hov:hover{transform:translateY(-5px);box-shadow:0 26px 60px -18px rgba(124,58,237,.55),0 0 0 1px rgba(139,92,246,.15)}
+.gcard.hov:hover::before{opacity:1}
+.gcard.hov:active{transform:scale(.985)}
+.soft{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.btn{transition:transform .25s,filter .25s,box-shadow .25s;position:relative}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn:active{transform:scale(.95)}
+.g-brand{background:linear-gradient(120deg,#4f46e5,#7c3aed 50%,#d946ef);box-shadow:0 10px 30px -8px rgba(124,58,237,.75),inset 0 1px 0 rgba(255,255,255,.3)}
+.g-mint{background:linear-gradient(120deg,#059669,#10b981 50%,#22d3ee);box-shadow:0 10px 30px -8px rgba(16,185,129,.6),inset 0 1px 0 rgba(255,255,255,.3)}
+.t-brand{background:linear-gradient(100deg,#a5b4fc,#c4b5fd 45%,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.t-gold{background:linear-gradient(100deg,#6ee7b7,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.field{background:rgba(6,8,36,.7);border:1px solid rgba(255,255,255,.09);color:#fff;outline:none;transition:border-color .25s,box-shadow .25s,background .25s;font-size:14px}
+.field:focus{border-color:#8b5cf6;background:rgba(10,12,50,.85);box-shadow:0 0 0 4px rgba(139,92,246,.2),0 8px 24px -10px rgba(139,92,246,.5)}
+.field::placeholder{color:#555d85}
+.eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
+.view{animation:up .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.msg{animation:pop .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.94)}to{opacity:1;transform:none}}
+.toast{position:fixed;top:calc(env(safe-area-inset-top,0px) + 74px);left:50%;z-index:100;animation:drop .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes drop{from{opacity:0;transform:translate(-50%,-24px) scale(.95)}to{opacity:1;transform:translate(-50%,0)}}
+.fnav{background:rgba(18,16,52,.55);backdrop-filter:blur(34px) saturate(180%);-webkit-backdrop-filter:blur(34px) saturate(180%);border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 50px -10px rgba(0,0,0,.75),0 0 0 .5px rgba(255,255,255,.05),inset 0 1px 0 rgba(255,255,255,.18)}
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+select option{background:#0b0d33}
+.pulse{animation:pl 2.4s ease-in-out infinite}@keyframes pl{50%{opacity:.4}}
+}
